@@ -32,3 +32,4 @@
               node-text        (.getNodeValue t)]
           [(string/join "/" (cons "/" xpath-components)) node-text]))
       text-nodes))))
+

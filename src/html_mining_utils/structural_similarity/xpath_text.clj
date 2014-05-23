@@ -1,12 +1,12 @@
 (ns html-mining-utils.structural-similarity.xpath-text
   "Compute XPaths to text and use cosine similarity
    as a metric"
-  (:require [structural-similarity.utils :as utils]
+  (:require [html-mining-utils.utils :as utils]
             [clojure.string :as string]
             [html-mining-utils.core :as core])
   (:use [clj-xpath.core :only [$x:node+]]))
 
-(def *sim-thresh* 0.58)
+(def sim-thresh 0.58)
 
 (defn char-frequency-representation
   "Provide a set of xpath and text pairs,
@@ -24,11 +24,11 @@
             (core/page-text-xpaths doc1))
         r2 (char-frequency-representation
             (core/page-text-xpaths doc2))]
-    (core/cosine-similarity r1 r2)))
+    (utils/cosine-similarity r1 r2)))
 
 (defn similar?
   [doc1 doc2]
-  (try (<= *sim-thresh*
+  (try (<= sim-thresh
            (similarity-cosine-char-freq doc1
                                         doc2))
        (catch org.w3c.dom.DOMException e false)))

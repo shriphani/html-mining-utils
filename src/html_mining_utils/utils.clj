@@ -1,4 +1,4 @@
-(ns structural-similarity.utils
+(ns html-mining-utils.utils
   (:require [clj-http.client :as client]
             [clojure.set :as clj-set]
             [clojure.string :as string])

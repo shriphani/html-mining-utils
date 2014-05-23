@@ -1,5 +1,7 @@
 (ns html-mining-utils.core
-  "Core utils for html documents")
+  "Core utils for html documents"
+  (:require [html-mining-utils.utils :as utils]
+            [clojure.string :as string]))
 
 (defn node->xpath-component
   "Supplied a node, we produce an xpath component bruh. Make it
